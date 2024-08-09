@@ -1,0 +1,24 @@
+<Project>
+	<PropertyGroup>
+		<Copyright>Copyright © 2024 njit-77, Inc. All rights reserved.</Copyright>
+		<Authors>njit-77</Authors>
+		<Owners>njit-77</Owners>
+		<Description>WpfTempalte</Description>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<TargetFrameworks>net472;net6.0-windows</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<UseWPF>true</UseWPF>
+		
+		<VersionPrefix>1.0</VersionPrefix>
+		<VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
+		<Version>$(VersionPrefix).$(VersionSuffix)</Version>
+		
+		<FileVersion>$(Version)</FileVersion>
+		<AssemblyVersion>$(Version)</AssemblyVersion>
+		
+		<BaseOutputPath>..\bin\</BaseOutputPath>
+		<OutputPath>$(BaseOutputPath)</OutputPath>
+   </PropertyGroup>
+</Project>
