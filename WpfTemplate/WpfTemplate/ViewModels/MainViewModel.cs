@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace WpfTemplate;
+namespace WpfTemplate.ViewModels;
 
 partial class MainViewModel : ObservableObject
 {

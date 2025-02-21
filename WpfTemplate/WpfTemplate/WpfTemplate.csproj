@@ -16,4 +16,17 @@
   <ItemGroup>
     <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove=".editorconfig" />
+    <None Remove=".gitignore" />
+    <None Remove="Directory.Build.props" />
+    <None Remove="Directory.Packages.props" />
+    <None Remove="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
+  </ItemGroup>
 </Project>
