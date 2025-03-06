@@ -3,6 +3,13 @@
 	<OutputType>WinExe</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="Directory.Build.props" />
+    <None Include="Directory.Packages.props" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
 	  <PackageReference Include="Microsoft.CSharp" />
 	  <PackageReference Include="Serilog" />
 	  <PackageReference Include="Serilog.Enrichers.Thread" />
@@ -14,19 +21,6 @@
 	  <PackageReference Include="HandyControl" />
   </ItemGroup>
   <ItemGroup>
-    <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove=".editorconfig" />
-    <None Remove=".gitignore" />
-    <None Remove="Directory.Build.props" />
-    <None Remove="Directory.Packages.props" />
-    <None Remove="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
-  </ItemGroup>
-  <ItemGroup>
-    <EditorConfigFiles Remove="D:\Project\Git\Template\WpfTemplate\WpfTemplate\.editorconfig" />
+    <Folder Include="Solution Items\" />
   </ItemGroup>
 </Project>
