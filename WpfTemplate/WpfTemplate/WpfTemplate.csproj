@@ -3,11 +3,7 @@
 	<OutputType>WinExe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <None Include=".editorconfig" />
-    <None Include="Directory.Build.props" />
-    <None Include="Directory.Packages.props" />
-    <None Include="LICENSE" />
-    <None Include="README.md" />
+    <None Remove="LICENSE" />
   </ItemGroup>
   <ItemGroup>
 	  <PackageReference Include="Microsoft.CSharp" />
