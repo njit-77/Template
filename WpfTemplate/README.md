@@ -29,6 +29,3 @@ HandyControl
 
 Microsoft.Xaml.Behaviors.Wpf
 ```
-
-## 
-

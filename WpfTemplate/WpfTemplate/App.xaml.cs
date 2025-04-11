@@ -40,7 +40,6 @@ public partial class App : Application
 
     protected override void OnExit(ExitEventArgs e)
     {
-        mutex.ReleaseMutex();
         mutex.Dispose();
         mutex = null;
 
@@ -141,6 +140,10 @@ public partial class App : Application
             $"{System.Reflection.Assembly.GetEntryAssembly().GetName().Name} - {AssemblyGUID}",
             out bool ret
         );
+        if (ret)
+        {
+            mutex.ReleaseMutex();
+        }
         return ret;
     }
 
