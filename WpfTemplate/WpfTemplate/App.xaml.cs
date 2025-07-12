@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.DependencyInjection;
-using Serilog;
 using WpfTemplate.Extensions;
 using WpfTemplate.Services;
 
@@ -17,14 +16,12 @@ public partial class App : Application
 
     private Serilog.ILogger _logger => GetService<Serilog.ILogger>();
 
-    private IMessageBoxService _messageBoxService =>
-            GetService<IMessageBoxService>();
+    private IMessageBoxService _messageBoxService => GetService<IMessageBoxService>();
 
     App()
     {
         _serviceProvider = ConfigureServices();
     }
-
 
     #region override
 
@@ -109,7 +106,7 @@ public partial class App : Application
     }
 
     public T? GetService<T>()
-    where T : class
+        where T : class
     {
         return _serviceProvider.GetService(typeof(T)) as T;
     }
@@ -124,7 +121,7 @@ public partial class App : Application
     /// </summary>
     /// <remarks>
     /// <para>
-    /// 当EnsureAssemblySingletion()函数内部定义局部Mutex时，如果先启动软件再调试运行，此时判断单例模式失效。
+    /// 当<see cref="EnsureAssemblySingletion()"/>内部定义局部Mutex时，如果先启动软件再调试运行，此时判断单例模式失效。
     /// </para>
     /// </remarks>
     private System.Threading.Mutex mutex;
