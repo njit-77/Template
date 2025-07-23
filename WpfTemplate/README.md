@@ -25,8 +25,6 @@ Microsoft.Extensions.DependencyInjection
 
 Serilog
 
-HandyControl
-
 Microsoft.Xaml.Behaviors.Wpf
 ```
 

@@ -9,6 +9,7 @@ partial class MainViewModel : ObservableObject, IRecipient<string>
     public MainViewModel()
     {
         App.Current.GetService<IMessenger>().Register(this);
+        
         Task.Delay(3_000).ContinueWith(_ =>
         {
             for (int i = 0; i < 3; i++)
