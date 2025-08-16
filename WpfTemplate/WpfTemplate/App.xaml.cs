@@ -3,9 +3,10 @@ using System.Windows;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.DependencyInjection;
 using WpfTemplate.Extensions;
-using WpfTemplate.Services;
+using WpfTemplate.Views;
 using YE.Control.Helper;
-using YE.Control.IServers;
+using YE.Control.Log;
+using YE.Control.MessageBox;
 
 namespace WpfTemplate;
 
@@ -28,7 +29,7 @@ public partial class App : Application
 
         if (GetService<ApplicationHelper>()?.OnStartup() == true)
         {
-            MainWindow = GetService<Views.MainView>();
+            MainWindow = GetService<MainView>();
             MainWindow.Visibility = Visibility.Visible;
 
             base.OnStartup(e);
@@ -39,13 +40,14 @@ public partial class App : Application
     {
         GetService<ApplicationHelper>()?.OnExit();
 
-        base.OnExit(e);
-
         LoggingExtensions.FreeConsole();
+
+        NLog.LogManager.Shutdown();
+
+        base.OnExit(e);
     }
 
     #endregion
-
 
     #region Method
 
@@ -53,8 +55,20 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
 
-        /// IServiceCollection
-        services.AddSingleton<IServiceCollection>(services);
+        /// View
+        services.AddViews();
+
+        /// ILogger
+        services.AddLogger();
+
+        /// Service
+        services.AddSingleton<IMessageBoxService, Services.MessageBoxService>();
+
+        services.AddSingleton(sp => new ApplicationHelper(
+            sp.GetRequiredService<IMessageBoxService>(),
+            sp.GetRequiredService<ILogger>(),
+            "14d28ff8-e0a0-44c3-a19e-eb51a89e36f8"
+        ));
 
         /// WeakReferenceMessenger
         services.AddSingleton<WeakReferenceMessenger>();
@@ -64,21 +78,6 @@ public partial class App : Application
 
         /// Dispatcher
         services.AddSingleton(_ => Current.Dispatcher);
-
-        /// View
-        services.AddViews();
-
-        /// ILogger
-        services.AddLogger();
-
-        /// Service
-        services.AddSingleton<IMessageBoxService, MessageBoxService>();
-
-        services.AddSingleton(sp => new ApplicationHelper(
-            "967bfbc5-fc46-401e-9b95-ad90953f0f13",
-            sp.GetRequiredService<IMessageBoxService>(),
-            sp.GetRequiredService<Serilog.ILogger>()
-        ));
 
         return services.BuildServiceProvider();
     }

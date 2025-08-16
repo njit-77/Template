@@ -22,6 +22,6 @@ partial class MainViewModel : ObservableObject, IRecipient<string>
 
     public void Receive(string message)
     {
-        App.Current.GetService<Serilog.ILogger>().Information(message);
+        App.Current.GetService<YE.Control.Log.ILogger>().Info(message);
     }
 }

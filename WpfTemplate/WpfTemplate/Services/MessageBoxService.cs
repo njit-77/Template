@@ -1,5 +1,5 @@
-﻿using Serilog;
-using YE.Control.IServers;
+﻿using YE.Control.Log;
+using YE.Control.MessageBox;
 
 namespace WpfTemplate.Services;
 
@@ -20,7 +20,7 @@ class MessageBoxService : IMessageBoxService
             case MessageLevel.Information:
 
                 {
-                    logger.Information("MessageBox Message = {Message}", message);
+                    logger.Info("MessageBox:{msg}", message);
 
                     result = System.Windows.MessageBox.Show(
                         message,
@@ -31,13 +31,13 @@ class MessageBoxService : IMessageBoxService
                         System.Windows.MessageBoxOptions.DefaultDesktopOnly
                     );
 
-                    logger.Information("MessageBox Result = {Result}", result);
+                    logger.Info("MessageBoxResult:{ret}", result);
                 }
                 break;
             case MessageLevel.Warning:
 
                 {
-                    logger.Warning("MessageBox Message = {Message}", message);
+                    logger.Warn("MessageBox:{msg}", message);
 
                     result = System.Windows.MessageBox.Show(
                         message,
@@ -48,13 +48,13 @@ class MessageBoxService : IMessageBoxService
                         System.Windows.MessageBoxOptions.DefaultDesktopOnly
                     );
 
-                    logger.Warning("MessageBox Result = {Result}", result);
+                    logger.Warn("MessageBoxResult:{ret}", result);
                 }
                 break;
             case MessageLevel.Error:
 
                 {
-                    logger.Error("MessageBox Message = {Message}", message);
+                    logger.Error("MessageBox:{msg}", message);
 
                     result = System.Windows.MessageBox.Show(
                         message,
@@ -65,7 +65,7 @@ class MessageBoxService : IMessageBoxService
                         System.Windows.MessageBoxOptions.DefaultDesktopOnly
                     );
 
-                    logger.Error("MessageBox Result = {Result}", result);
+                    logger.Error("MessageBoxResult:{ret}", result);
                 }
                 break;
             default:

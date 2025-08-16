@@ -23,7 +23,7 @@ CommunityToolkit.Mvvm
 
 Microsoft.Extensions.DependencyInjection
 
-Serilog
+NLog
 
 Microsoft.Xaml.Behaviors.Wpf
 ```
